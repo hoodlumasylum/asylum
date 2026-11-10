@@ -33,50 +33,78 @@
     <header class="sec-head"><span class="kicker">${kicker}</span><h1>${h}</h1>${sub ? `<p>${sub}</p>` : ""}</header>`;
 
   const hallTile = (h) => `
-    <a class="cart" href="#/hall/${h.id}"><span class="cart-glyph">${h.glyph}</span>
+    <a class="cart" href="${h.href || "#/hall/" + h.id}"><span class="cart-glyph">${h.glyph}</span>
       <span class="cart-name">${h.name}</span><span class="cart-line">${h.line}</span></a>`;
 
   function viewHome() {
+    const sl = D.slides[slideI % D.slides.length];
     return `
-    <section class="hero">
-      <div class="hero-txt">
-        <span class="kicker">A community built on Maat</span>
-        <h1 class="mega">HOODLUM<br>ASYLUM</h1>
-        <p class="lede">Truth. Balance. Justice. Harmony.<br>A home for music, minds, makers and gamers, where your heart stays lighter than a feather.</p>
-        <div class="row">
-          <a class="btn gold" href="#/halls">Enter the Halls</a>
-          <a class="btn ghost" href="#/maat">Who is Maat?</a>
+    <section class="sign-hero">
+      <div class="sign">
+        <span class="chain l"></span><span class="chain r"></span>
+        <div class="board">
+          <img src="img/feather.svg" alt="" class="board-feather" aria-hidden="true">
+          <span class="kicker">A community built on Maat</span>
+          <h1 class="mega">HOODLUM<br>ASYLUM</h1>
+          <p class="lede">Real people. Real talent. Real balance.</p>
         </div>
       </div>
-      <img class="hero-feather" src="img/feather.svg" alt="" aria-hidden="true">
+      <ul class="checklist">
+        ${["Mental health first", "Creativity & talent", "Opportunity", "Truth & support", "Community", "Balance in all things"].map((x) => `<li>${x}</li>`).join("")}
+      </ul>
     </section>
-    <div class="border-strip" aria-hidden="true"></div>
-
-    <section class="pillars">
-      ${[["Truth", "Say it straight. Real stories, no fakes."], ["Balance", "Hype and rest. Grind and heal."], ["Justice", "Talent battles, never beef. Fair votes."], ["Harmony", "Lift each other. Kindness is the rule."]]
-        .map(([a, b], i) => `<div class="pillar"><span class="num">${["I", "II", "III", "IV"][i]}</span><h3>${a}</h3><p>${b}</p></div>`).join("")}
-    </section>
-
-    <section class="split">
-      <div class="panel stone">
-        <span class="kicker">The Weighing of the Heart</span>
-        <h2>Is your heart as light as a feather?</h2>
-        <p>Ancient Egyptians pictured the heart being weighed against the feather of Maat. We built a community around the same idea: live honest, stay balanced, lift people up.</p>
-        <a class="btn gold" href="#/maat">Read the story</a>
+    <div class="tiles">${D.halls.map((h) => `
+      <a class="tile" href="${h.href || "#/hall/" + h.id}"><span class="t-ico">${h.glyph}</span><span>${h.name}</span></a>`).join("")}</div>
+    <section class="carousel" aria-roledescription="carousel">
+      <div class="car-art" aria-hidden="true">${scales(0)}</div>
+      <div class="car-txt">
+        <span class="kicker">${sl.k}</span><h2>${sl.h}</h2>
+        <ul class="checklist small-list">${sl.items.map((x) => `<li>${x}</li>`).join("")}</ul>
+        <a class="btn gold" href="${sl.go}">${sl.cta} ▶</a>
+        <div class="dots">${D.slides.map((_, i) => `<button class="dot ${i === slideI % D.slides.length ? "on" : ""}" data-slide="${i}" aria-label="Slide ${i + 1}"></button>`).join("")}</div>
       </div>
-      <div class="panel scales-wrap">${scales(0)}</div>
     </section>
-
-    <section>
-      <div class="row-head"><h2>The Halls</h2><a href="#/halls">All halls →</a></div>
-      <div class="carts">${D.halls.slice(0, 6).map(hallTile).join("")}</div>
-    </section>
-
     <section class="tri">
-      <a class="feature arena-f" href="#/arena"><span class="kicker">VS Arena</span><h3>Talent, not beef</h3><p>Bars, beats, art, cuts, fits and games. Vote, chat and send demo gifts.</p></a>
-      <a class="feature lab-f" href="#/lab"><span class="kicker">Concept Lab</span><h3>Ideas worth building</h3><p>Concepts pitched by AI hosts, clearly labelled. Back the ones you love.</p></a>
-      <a class="feature care-f" href="#/house-of-life"><span class="kicker">House of Life</span><h3>Wellbeing first</h3><p>Peer support plus real UK helplines when you need more than a chat.</p></a>
+      <a class="feature arena-f" href="#/arena"><span class="kicker">VS Arena</span><h3>Talent, not beef</h3><p>Bars, beats, art, cuts, fits and games.</p></a>
+      <a class="feature lab-f" href="#/lab"><span class="kicker">Concept Lab</span><h3>Ideas worth building</h3><p>AI hosts, clearly labelled.</p></a>
+      <a class="feature care-f" href="#/maat"><span class="kicker">Maat</span><h3>The feather & the heart</h3><p>Why our community runs on balance.</p></a>
     </section>`;
+  }
+
+  function sidebar() {
+    $("#sidebar").innerHTML = `<a class="sb" href="#/" data-r="home"><i>△</i>Home</a>` +
+      D.halls.map((h) => `<a class="sb" href="${h.href || "#/hall/" + h.id}" data-r="${h.href ? "house-of-life" : "hall-" + h.id}"><i>${h.glyph}</i>${h.name}</a>`).join("") +
+      `<div class="side-sep"></div>
+      <a class="sb" href="#/arena" data-r="arena"><i>⚔</i>VS Arena</a>
+      <a class="sb" href="#/lab" data-r="lab"><i>✦</i>Concept Lab</a>
+      <a class="sb" href="#/treasury" data-r="treasury"><i>◎</i>C-Notes</a>
+      <a class="sb" href="#/maat" data-r="maat"><i>⚖</i>Maat</a>`;
+  }
+
+  function rightcol() {
+    $("#rightcol").innerHTML = `
+      <div class="rc-card"><h3>Create a post</h3>
+        <textarea id="rc-text" maxlength="400" placeholder="Share something true…"></textarea>
+        <div class="row between"><select id="rc-hall" aria-label="Hall">${D.halls.filter((h) => !h.href).map((h) => `<option value="${h.id}">${h.name}</option>`).join("")}</select><button class="btn gold sm" id="rc-post">Post</button></div></div>
+      <div class="rc-card"><h3>Trending</h3>${D.trending.map((t) => `
+        <a class="trend" href="${t.h}"><span class="thumb" style="--c:${t.c}">${t.g}</span><span><b>${t.t}</b><small>${t.s}</small></span></a>`).join("")}</div>
+      <div class="rc-card"><h3>Upcoming events</h3>${D.events.map((e) => `
+        <div class="ev"><span class="ev-d">${e.d}</span><span><b>${e.t}</b><small>${e.s}</small></span></div>`).join("")}</div>
+      <button class="join" id="join">☥ JOIN THE ASYLUM</button>`;
+    $("#rc-post").onclick = () => { const t = $("#rc-text").value.trim(); if (!t) return toast("Write something first"); const h = $("#rc-hall").value; S.posts.unshift({ by: "code", t, w: "now", hall: h }); save(); toast("Posted (demo)"); location.hash = "#/hall/" + h; render(); };
+    $("#join").onclick = () => toast("Sign-ups open soon. This is a preview.");
+  }
+
+  function viewSearch(q) {
+    q = decodeURIComponent(q || "").toLowerCase();
+    const hit = (x) => x.toLowerCase().includes(q);
+    const halls = D.halls.filter((h) => hit(h.name + " " + h.line));
+    const bs = D.battles.filter((b) => hit(b.type + " " + b.a + " " + b.b));
+    const cs = D.concepts.filter((c) => hit(c.title + " " + c.blurb));
+    const res = [...halls.map((h) => `<a class="trend" href="${h.href || "#/hall/" + h.id}"><span class="thumb">${h.glyph}</span><span><b>${h.name}</b><small>Hall</small></span></a>`),
+      ...bs.map((b) => `<a class="trend" href="#/arena/${b.id}"><span class="thumb">⚔</span><span><b>${esc(b.a)} vs ${esc(b.b)}</b><small>${b.type}</small></span></a>`),
+      ...cs.map((c) => `<a class="trend" href="#/lab"><span class="thumb">✦</span><span><b>${esc(c.title)}</b><small>Concept Lab</small></span></a>`)];
+    return `${title("Search", `“${esc(q)}”`, `${res.length} result${res.length === 1 ? "" : "s"}`)}<div class="panel">${res.join("") || '<p class="muted">Nothing yet. Try "music" or "art".</p>'}</div>`;
   }
 
   function viewMaat() {
@@ -195,7 +223,10 @@
         <div class="panel vault"><span class="coin big"></span><div><div class="muted small">Demo balance</div><div class="huge" id="bal3">${S.bal}</div><div class="muted small">C-Notes</div></div></div>
         <div class="panel"><h3>Demo actions</h3>
           <div class="row"><button class="btn gold" id="topup">+50 demo C-Notes</button><button class="btn ghost" id="reset">Reset demo</button></div>
-          <p class="muted small">Real buying and creator payouts are not switched on. When they are, they'll need age (18+) and ID checks first.</p></div>
+          <p class="muted small">Everything here is demo C-Notes. No real money is taken or paid out.</p></div>
+      </div>
+      <div class="notice"><b>Coming soon: real-money gifting.</b> Buying C-Notes and creator payouts are not live yet. When they launch, they will be <b>18+ only</b> and <b>ID-checked</b> through a regulated payment provider. Until then, every gift on this site is demo only.</div>
+      <div>
       </div>
       <div class="panel"><h3>Gifts</h3><div class="row">${D.gifts.map((g) => `<span class="gift static">${g.e} ${g.n} · ${g.c}</span>`).join("")}</div></div>`;
   }
@@ -214,13 +245,16 @@
       </div>`;
   }
 
-  const routes = { "": viewHome, home: viewHome, maat: viewMaat, halls: viewHalls, hall: viewHall, arena: (a) => (a ? viewBattle(a) : viewArena()), lab: viewLab, treasury: viewTreasury, "house-of-life": viewCare };
+  const routes = { "": viewHome, home: viewHome, maat: viewMaat, halls: viewHalls, hall: viewHall, arena: (a) => (a ? viewBattle(a) : viewArena()), lab: viewLab, search: viewSearch, treasury: viewTreasury, "house-of-life": viewCare };
   let timer;
   function render() {
     const [r, a] = location.hash.replace(/^#\/?/, "").split("/");
     const fn = routes[r] || viewHome;
     $("#view").innerHTML = fn(a);
     const nav = r === "hall" ? "halls" : (r || "home");
+    const side = r === "hall" ? "hall-" + a : (r || "home");
+    $$(".sb").forEach((x) => x.classList.toggle("on", x.dataset.r === side));
+    closeMenu();
     $$("[data-r]").forEach((x) => x.classList.toggle("on", x.dataset.r === nav));
     bind();
     clearInterval(timer);
@@ -245,6 +279,17 @@
     const rs = $("#reset"); if (rs) rs.onclick = () => { localStorage.removeItem(KEY); location.reload(); };
   }
 
+  let slideI = 0;
+  function swapSlide() { const c = $(".carousel"); if (!c) return; const t = document.createElement("div"); t.innerHTML = viewHome(); c.replaceWith(t.querySelector(".carousel")); }
+  setInterval(() => { if ((location.hash.replace(/^#\/?/, "") || "home") === "home" && !document.hidden) { slideI++; swapSlide(); } }, 6000);
+  document.addEventListener("click", (e) => { const d = e.target.closest("[data-slide]"); if (d) { slideI = +d.dataset.slide; swapSlide(); } });
+  const openMenu = () => { document.body.classList.add("menu"); $("#burger").setAttribute("aria-expanded", "true"); };
+  function closeMenu() { document.body.classList.remove("menu"); $("#burger").setAttribute("aria-expanded", "false"); }
+  $("#burger").onclick = () => document.body.classList.contains("menu") ? closeMenu() : openMenu();
+  $("#scrim").onclick = closeMenu;
+  $("#search").onsubmit = (e) => { e.preventDefault(); const q = $("#q").value.trim(); if (q) location.hash = "#/search/" + encodeURIComponent(q); };
+  sidebar();
+  rightcol();
   window.addEventListener("hashchange", render);
   render();
 })();

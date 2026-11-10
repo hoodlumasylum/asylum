@@ -16,37 +16,39 @@
   <div class="demo-strip">Preview build · C-Notes, backing and posts are demo only and stay in your browser · No real payments</div>
 
   <header class="top">
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
     <a class="brand" href="#/">
       <img src="img/logo.svg" alt="" width="40" height="40">
       <span class="brand-txt"><b>HOODLUM</b><b>ASYLUM</b></span>
     </a>
     <nav class="topnav" aria-label="Main">
-      <a href="#/" data-r="home">Temple</a>
-      <a href="#/maat" data-r="maat">Maat</a>
-      <a href="#/halls" data-r="halls">Halls</a>
-      <a href="#/arena" data-r="arena">VS Arena</a>
-      <a href="#/lab" data-r="lab">Concept Lab</a>
-      <a href="#/treasury" data-r="treasury">C-Notes</a>
-      <a href="#/house-of-life" data-r="house-of-life" class="care">Wellbeing</a>
+      <a href="#/" data-r="home"><i>△</i>Temple</a>
+      <a href="#/halls" data-r="halls"><i>▦</i>Halls</a>
+      <a href="#/arena" data-r="arena"><i>⚔</i>Arena</a>
+      <a href="#/lab" data-r="lab"><i>✦</i>Lab</a>
+      <a href="#/maat" data-r="maat"><i>⚖</i>Maat</a>
     </nav>
+    <form class="search" id="search" role="search"><input id="q" type="search" placeholder="Search halls, battles, ideas…" aria-label="Search"></form>
     <a class="cn-pill" href="#/treasury" title="Demo C-Notes"><span class="coin"></span><span id="bal">0</span></a>
+    <a class="me" href="#/house-of-life" title="Wellbeing" aria-label="Wellbeing">♥</a>
   </header>
 
-  <main id="view" tabindex="-1"></main>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar" aria-label="Halls menu"></aside>
+    <main id="view" tabindex="-1"></main>
+    <aside class="rightcol" id="rightcol" aria-label="Create, trending and events"></aside>
+  </div>
+  <div class="scrim" id="scrim"></div>
+
+  <div class="values" aria-label="Our values">
+    <span>☥ Speak Truth</span><span>⚖ Keep Balance</span><span>✦ Show Your Gift</span><span>♥ Lift Each Other</span><span>△ Build Together</span>
+  </div>
 
   <footer class="foot">
     <div class="border-strip" aria-hidden="true"></div>
     <p><b>Hoodlum Asylum</b> · Built on Maat: truth, balance, justice, harmony.</p>
     <p class="small">Front-end preview. Original art, all drawn for this site. AI hosts in the Concept Lab are clearly labelled AI. Not clinical advice: in an emergency call 999.</p>
   </footer>
-
-  <nav class="tabbar" aria-label="Quick">
-    <a href="#/" data-r="home"><span>△</span>Temple</a>
-    <a href="#/halls" data-r="halls"><span>▦</span>Halls</a>
-    <a href="#/arena" data-r="arena"><span>⚔</span>Arena</a>
-    <a href="#/lab" data-r="lab"><span>✦</span>Lab</a>
-    <a href="#/house-of-life" data-r="house-of-life"><span>♥</span>Care</a>
-  </nav>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="js/data.js"></script>

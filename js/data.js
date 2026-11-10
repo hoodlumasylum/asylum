@@ -11,7 +11,8 @@ window.HA = {
     { id: "fitness", name: "Sport & Fitness", glyph: "▲", line: "Walks, training, challenges" },
     { id: "style", name: "Fashion & Hair", glyph: "✂", line: "Fits, cuts, brands you built" },
     { id: "community", name: "Community & Charity", glyph: "⚖", line: "Projects that put good back" },
-    { id: "events", name: "Gatherings", glyph: "☼", line: "Meet ups and live nights" }
+    { id: "events", name: "Gatherings", glyph: "☼", line: "Meet ups and live nights" },
+    { id: "support", name: "Support & Advice", glyph: "✚", line: "Helplines and real help", href: "#/house-of-life" }
   ],
   members: {
     code: { name: "Code", handle: "@code", tint: "#d4a843" },
@@ -61,6 +62,23 @@ window.HA = {
     { id: "game", type: "Gaming", a: "Max D.", b: "PadQueen", status: "Open" },
     { id: "dance", type: "Dance", a: "Move Temple", b: "Pulse Crew", status: "Upcoming" },
     { id: "debate", type: "Debate", a: "Sol T.", b: "Kay O.", status: "Open" }
+  ],
+  trending: [
+    { t: "Feather & Flame stems", s: "Music · Concept Lab", g: "♫", c: "#2bb6b0", h: "#/lab" },
+    { t: "Bars: Nefa R. vs Lyric Ra", s: "VS Arena · live demo", g: "⚔", c: "#c46a3a", h: "#/arena/bars" },
+    { t: "Check-in circle stories", s: "Mental Health hall", g: "♥", c: "#3d6fd1", h: "#/hall/mind" },
+    { t: "What Maat means today", s: "Podcasts & Talks", g: "◉", c: "#d4a843", h: "#/hall/podcast" },
+    { t: "Wall of Truth mural", s: "Artists & Creators", g: "✎", c: "#8d5bd1", h: "#/hall/creators" }
+  ],
+  events: [
+    { d: "FRI", t: "Co-op Games Night", s: "Gaming hall · online" },
+    { d: "SAT", t: "Open Mic & Live Podcast", s: "Gatherings · venue TBC" },
+    { d: "SUN", t: "Sunrise Walk Challenge", s: "Sport & Fitness" }
+  ],
+  slides: [
+    { k: "Podcasts & Live Talks", h: "Real stories, said out loud", items: ["Spirit & ancestry talks", "Mental health conversations", "Life stories from the ends", "Culture, history and Maat"], go: "#/hall/podcast", cta: "Listen in" },
+    { k: "VS Arena", h: "Talent, not beef", items: ["Bars and beat battles", "Speed art and fit clashes", "Fair votes, kind chat", "Demo gifts for creators"], go: "#/arena", cta: "Enter the Arena" },
+    { k: "Concept Lab", h: "Ideas worth building", items: ["AI hosts, clearly labelled", "Music, art and inventions", "Back the ideas you love", "Owned by Hoodlum Asylum Concept Lab"], go: "#/lab", cta: "See the ideas" }
   ],
   gifts: [
     { n: "Feather", c: 5, e: "🪶" },

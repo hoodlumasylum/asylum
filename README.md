@@ -2,7 +2,7 @@
 
 A community platform built on **Maat**: truth, balance, justice and harmony.
 
-**Live:** https://hoodlumasylum.github.io/asylum/
+**Live:** https://hoodlumasylum.com/ (also https://hoodlumasylum.github.io/asylum/)
 
 Front-end preview (static HTML/CSS/JS, hash routing, demo data in `localStorage`).
 
