@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050a14"/><stop offset=".55" stop-color="#0b2236"/><stop offset="1" stop-color="#3a2a12"/></linearGradient>
+    <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a5a26"/><stop offset="1" stop-color="#1a1208"/></linearGradient>
+    <linearGradient id="pyrL" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c79a4a"/><stop offset="1" stop-color="#8a6526"/></linearGradient>
+    <linearGradient id="pyrR" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4c3816"/><stop offset="1" stop-color="#2a1e0b"/></linearGradient>
+    <radialGradient id="moon" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff6d8"/><stop offset=".6" stop-color="#f1d68a"/><stop offset="1" stop-color="#f1d68a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1440" height="520" fill="url(#sky)"/>
+  <g fill="#fff" opacity=".7">
+    <circle cx="120" cy="60" r="1.4"/><circle cx="260" cy="120" r="1"/><circle cx="410" cy="40" r="1.6"/><circle cx="520" cy="150" r="1"/><circle cx="640" cy="70" r="1.2"/><circle cx="760" cy="30" r="1"/><circle cx="880" cy="110" r="1.5"/><circle cx="990" cy="55" r="1"/><circle cx="1110" cy="140" r="1.2"/><circle cx="1220" cy="35" r="1.6"/><circle cx="1330" cy="95" r="1"/><circle cx="60" cy="180" r="1"/><circle cx="700" cy="200" r="1"/><circle cx="1380" cy="190" r="1.2"/>
+  </g>
+  <circle cx="1120" cy="130" r="90" fill="url(#moon)" opacity=".55"/>
+  <circle cx="1120" cy="130" r="42" fill="#f6e3a6"/>
+  <!-- pyramids -->
+  <path d="M180 430 L420 170 L470 430 Z" fill="url(#pyrL)"/><path d="M420 170 L660 430 H470 Z" fill="url(#pyrR)"/>
+  <path d="M560 430 L720 250 L750 430 Z" fill="url(#pyrL)" opacity=".85"/><path d="M720 250 L880 430 H750 Z" fill="url(#pyrR)" opacity=".85"/>
+  <path d="M900 430 L1010 310 L1030 430 Z" fill="url(#pyrL)" opacity=".7"/><path d="M1010 310 L1120 430 H1030 Z" fill="url(#pyrR)" opacity=".7"/>
+  <!-- obelisk -->
+  <path d="M1250 430 V210 L1262 190 L1274 210 V430 Z" fill="#a7792f"/><path d="M1262 190 L1274 210 V430 H1262 Z" fill="#5a4118"/>
+  <g stroke="#3a2a0e" stroke-width="2" fill="none"><ellipse cx="1262" cy="240" rx="4" ry="5"/><path d="M1262 245 V258 M1256 248 H1268 M1257 280 H1267 M1262 300 l-4 8 h8 z M1257 330 q5 -6 10 0"/></g>
+  <path d="M0 420 Q360 380 720 420 T1440 410 V520 H0 Z" fill="url(#sand)"/>
+  <path d="M0 470 Q400 440 820 470 T1440 460 V520 H0 Z" fill="#120c05"/>
+</svg>
