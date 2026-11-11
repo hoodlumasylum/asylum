@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hoodlum Asylum · Community of Maat (Preview)</title>
+  <meta name="description" content="Hoodlum Asylum: a community built on Maat (truth, balance, justice and harmony). Music, mental health, creators, gaming, talent battles and more. Front-end preview, demo only.">
+  <meta name="theme-color" content="#0b0906">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="demo-strip">Preview build · C-Notes, backing and posts are demo only and stay in your browser · No real payments</div>
+
+  <header class="top">
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+    <a class="brand" href="#/">
+      <img src="img/logo.svg" alt="" width="40" height="40">
+      <span class="brand-txt"><b>HOODLUM</b><b>ASYLUM</b></span>
+    </a>
+    <nav class="topnav" aria-label="Main">
+      <a href="#/" data-r="home"><i>△</i>Temple</a>
+      <a href="#/halls" data-r="halls"><i>▦</i>Halls</a>
+      <a href="#/arena" data-r="arena"><i>⚔</i>Arena</a>
+      <a href="#/lab" data-r="lab"><i>✦</i>Lab</a>
+      <a href="#/maat" data-r="maat"><i>⚖</i>Maat</a>
+    </nav>
+    <form class="search" id="search" role="search"><input id="q" type="search" placeholder="Search halls, battles, ideas…" aria-label="Search"></form>
+    <a class="cn-pill" href="#/treasury" title="Demo C-Notes"><span class="coin"></span><span id="bal">0</span></a>
+    <a class="me" href="#/house-of-life" title="Wellbeing" aria-label="Wellbeing">♥</a>
+  </header>
+
+  <div class="shell">
+    <aside class="sidebar" id="sidebar" aria-label="Halls menu"></aside>
+    <main id="view" tabindex="-1"></main>
+    <aside class="rightcol" id="rightcol" aria-label="Create, trending and events"></aside>
+  </div>
+  <div class="scrim" id="scrim"></div>
+
+  <div class="values" aria-label="Our values">
+    <span>☥ Speak Truth</span><span>⚖ Keep Balance</span><span>✦ Show Your Gift</span><span>♥ Lift Each Other</span><span>△ Build Together</span>
+  </div>
+
+  <footer class="foot">
+    <div class="border-strip" aria-hidden="true"></div>
+    <p><b>Hoodlum Asylum</b> · Built on Maat: truth, balance, justice, harmony.</p>
+    <p class="small">Front-end preview. Original art, all drawn for this site. AI hosts in the Concept Lab are clearly labelled AI. Not clinical advice: in an emergency call 999.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
