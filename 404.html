@@ -1,6 +1,29 @@
 <!doctype html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hoodlum Asylum</title>
-<script>location.replace('/' + (location.search || '') + (location.hash || '#home'));</script>
-<p><a href="/">Back to Hoodlum Asylum</a></p>
+<meta http-equiv="refresh" content="0;url=https://hoodlumasylum.com/">
+<link rel="canonical" href="https://hoodlumasylum.com/">
+<script>
+(function () {
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function (regs) {
+      regs.forEach(function (r) { r.unregister(); });
+    });
+  }
+  if (window.caches) {
+    caches.keys().then(function (keys) {
+      keys.forEach(function (k) { caches.delete(k); });
+    });
+  }
+  var dest = "https://hoodlumasylum.com" + location.pathname + location.search + location.hash;
+  location.replace(dest);
+})();
+</script>
+</head>
+<body>
+<p>Hoodlum Asylum has moved to <a href="https://hoodlumasylum.com/">https://hoodlumasylum.com/</a>.</p>
+</body>
+</html>
